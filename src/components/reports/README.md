@@ -1,7 +1,5 @@
 ## Om appen
 
-Installera alla moduler med kommandot **npm install**.
-
 Starta appen i development mode med kommandot **npm start**.
 
 Bygg appen för produktion med **npm run build**.
