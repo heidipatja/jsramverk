@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Me = () => {
+class Me extends Component {
 
-    return (
-        <main>
-            <h1>Me-app i jsramverk</h1>
+    constructor() {
+        super();
+        this.state = { presentation: '' };
+    }
 
-            <p>Jag heter Heidi Patja och är bosatt i Sundbyberg.</p>
+    callAPI() {
+        fetch("http://localhost:1337/")
+            .then(res => res.json())
+            .then(res => this.setState({ apiResponse: res.data.msg }));
+    }
 
-            <p>Vanligtvis är jag en ganska aktiv person, som bland annat ägnar mycket tid åt vandring och cykling, men just nu har jag en gipsad högerarm vilket gör livet lite mer begränsat. Det leder också till att denna beskrivning blir kort. Vi sparar bokstäverna till kodandet istället.</p>
-        </main>
-    );
-};
+    componentDidMount() {
+        this.callAPI();
+    }
+
+    render() {
+
+        return (
+            <main dangerouslySetInnerHTML={{__html: this.state.apiResponse}} ></main>
+        );
+    }
+}
 
 export default Me;

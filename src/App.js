@@ -12,12 +12,12 @@ import './App.css';
 const App = () => (
     <Router>
         <div className="App">
-            <nav class="top-nav">
-                <div class="site-name">
+            <nav className="top-nav">
+                <div className="site-name">
                     jsramverk
                 </div>
             </nav>
-            <nav class="bottom-nav">
+            <nav className="bottom-nav">
                 <ul>
                     <li>
                         <Link to="/">
@@ -25,7 +25,7 @@ const App = () => (
                             Hem</Link>
                     </li>
                     <li>
-                        <Link to="/reports/week/1">
+                        <Link to="/reports">
                             <FontAwesomeIcon icon={faBookOpen} />
                             Redovisning</Link>
                     </li>
@@ -35,7 +35,7 @@ const App = () => (
       renders the first one that matches the current URL. */}
           <Switch>
               <Route exact path="/" component={Me}/>
-              <Route path="/reports/week/1" component={Reports}/>
+              <Route path="/reports" component={Reports}/>
           </Switch>
         </div>
     </Router>
