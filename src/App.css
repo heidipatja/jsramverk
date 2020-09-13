@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     background-color: #fff;
 }
@@ -16,7 +20,7 @@ body {
 
 main {
     margin: 3.5rem auto 0;
-    max-width: 500px;
+    max-width: 35rem;
     text-align: left;
     padding: 1rem;
 }
@@ -49,19 +53,26 @@ main ul {
 .bottom-nav {
     background-color: #333;
     bottom: 0;
+}
+
+.navContainer {
+    margin: 0 auto;
     flex-flow: row nowrap;
+    display: flex;
     justify-content: space-evenly;
+    width: 28rem;
 }
 
-nav li {
+.navContainer a {
     display: inline;
-    font-size: 1.5rem;
-    margin: 0 1.5rem;
-}
-
-nav a {
+    font-size: 1rem;
     color: #cafffc;
     text-decoration: none;
+    text-align: center;
+}
+
+.navContainer svg {
+    margin: 0 auto;
 }
 
 .site-name {
@@ -74,7 +85,8 @@ nav a {
 }
 
 a,
-p {
+p,
+textarea {
     font-family: 'Lato', sans-serif;
 }
 
@@ -97,7 +109,7 @@ h6 {
 
 h1 {
     font-weight: 600;
-    font-size: 2.7rem;
+    font-size: 2.4rem;
     border-bottom: 1px solid $blue;
     margin-top: 0.7rem;
 }
@@ -105,6 +117,11 @@ h1 {
 h2 {
     font-size: 2rem;
     margin-bottom: 1.4rem;
+}
+
+.weekHeading h2 {
+    padding-bottom: 3px;
+    border-bottom: solid 1px gray;
 }
 
 h3 {
@@ -122,9 +139,103 @@ h6 {
     font-size: 1.2rem;
 }
 
+svg {
+    width: 1rem;
+}
+
 .fa-home,
-.fa-book-open {
-    padding: 0 0.5rem 0 0;
+.fa-book-open,
+.fa-sign-in-alt {
+    color: #cafffc;
+    display: block;
+}
+
+.updateLink .fa-pencil-alt {
+    color: #e8a830;
+    padding-left: 0.5rem;
+    float: right;
+    margin: 0.35rem 0.5rem;
+}
+
+.reportLinks a {
+    padding: 0.5rem;
+    background: #fff;
+    margin-bottom: 0.3rem;
+    border: 1px solid #afafaf;
+    text-decoration: none;
+    display: block;
+    border-radius: 0.3rem;
+}
+
+button {
+    border: 1px solid #236b67;
+    background: #34a29c;
+    color: #fff;
+    text-decoration: none;
+    box-sizing: border-box;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+    display: block;
+    width: 100%;
+    padding: 0.7rem 4rem;
+    margin: 1.5rem auto;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.createLink {
+    border: 1px solid #236b67;
+    background: #34a29c;
+    color: #fff;
+    text-decoration: none;
+    box-sizing: border-box;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 0.3rem;
+    -webkit-border-radius: 0.3rem;
+    -moz-border-radius: 0.3rem;
+
+    display: block;
+    width: 100%;
+    padding: 0.7rem 4rem;
+    margin: 1.5rem auto;
+}
+
+input,
+select,
+.input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: block;
+    border-radius: 0.2rem;
+    padding: 0.6rem 0.6rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 1.4rem;
+    min-height: 3rem;
+    max-width: 35rem;
+    font-size: 1rem;
+}
+
+label {
+    font-size: 1rem;
+    margin: 1.5rem 0 .25rem;
+    display: block;
+}
+
+label::after {
+    content: ":";
+}
+
+textarea {
+    width: 100%;
+    min-height: 10rem;
+    padding: 0.4rem;
+    font-size: 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -133,13 +244,37 @@ h6 {
     }
 
     .bottom-nav {
-        top: 4.6rem;
+        top: 3.7rem;
         bottom: unset;
         padding: 1rem 0;
     }
 
+    .createLink {
+        padding: 0.7rem 4rem;
+        margin: 1.5rem 0 0 0;
+    }
+
+    .navContainer a {
+        display: inline;
+        font-size: 1.2rem;
+        color: #cafffc;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .navContainer svg {
+        margin: 0 0.5rem 0 0;
+    }
+
+    .fa-home,
+    .fa-book-open,
+    .fa-sign-in-alt {
+        margin: 0 0.5rem 0 0;
+        display: inline-block;
+    }
+
     main {
         padding: 1rem;
-        margin: 10.5rem auto 0;
+        margin: 7.5rem auto 0;
     }
 }

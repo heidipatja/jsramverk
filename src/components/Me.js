@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 class Me extends Component {
 
-    constructor() {
-        super();
-        this.state = { presentation: '' };
+    constructor(props) {
+        super(props);
+        this.state = { res: '' };
     }
 
     callAPI() {
-        fetch("http://localhost:1337/")
+        fetch("http://localhost:1337")
             .then(res => res.json())
-            .then(res => this.setState({ apiResponse: res.data.msg }));
+            .then(res => this.setState({ content: res.data.content }));
     }
 
     componentDidMount() {
@@ -18,9 +19,10 @@ class Me extends Component {
     }
 
     render() {
-
         return (
-            <main dangerouslySetInnerHTML={{__html: this.state.apiResponse}} ></main>
+            <main>
+                <ReactMarkdown source={this.state.content} />
+            </main>
         );
     }
 }

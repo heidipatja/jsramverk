@@ -1,51 +1,20 @@
 import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
-// import ReadMe from './reports/README.md';
-import { BrowserRouter as Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ReportDetails from "./ReportDetails";
+import UpdateReport from "./UpdateReport";
+import CreateReport from "./CreateReport";
 
-function Reports() {
+class Reports extends Component {
 
-    let { path, url } = useRouteMatch();
-
-    return (
-        <main>
-            <div>
-                <h1>Redovisningar</h1>
-                <ul>
-                    <li>
-                        <Link to={`${url}/week/1`}>Vecka 1: Frontend</Link>
-                    </li>
-                    <li>
-                        <Link to={`${url}/week/2`}>Vecka 2: Backend</Link>
-                    </li>
-                </ul>
-
-                <Switch>
-                    <Route exact path={path}>
-
-                    </Route>
-                    <Route path={`${path}/week/:week`} component={Report}>
-                    </Route>
-                </Switch>
-            </div>
-        </main>
-    );
-}
-
-
-class Report extends Component {
-
-    constructor() {
-        super();
-        this.state = { res: '' };
+    constructor(props) {
+        super(props);
+        this.state = { data: [], status: '' };
     }
 
     callAPI() {
-        const week = this.props.match.params.week;
-
-        fetch("http://localhost:1337/reports/week/" + week)
+        fetch("http://localhost:1337/reports/")
             .then(res => res.json())
-            .then(res => this.setState({ week: res.data.week, content: res.data.content }));
+            .then(res => this.setState({ data: res.data }));
     }
 
     componentDidMount() {
@@ -53,18 +22,34 @@ class Report extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.match.params.week !== this.props.match.params.week) {
-            console.log("hej hej");
+        if (this.props.match.params.week !== prevProps.match.params.week) {
             this.callAPI();
         }
     }
 
+    CreateLinks() {
+        const links = [];
+        this.state.data.map((report, index) =>
+            links.push(<Link key={index} className="reportLinks" to={`/reports/week/${report.week}`}>Vecka {report.week}</Link>)
+        );
+        return links;
+    }
+
     render() {
         return (
-            <div>
-                <h2>Vecka {this.state.week}</h2>
-                <p>{this.state.content}</p>
-            </div>
+            <main>
+                <Router>
+                    <h1>Redovisning</h1>
+                    <div className="reportLinks">
+                        {this.CreateLinks()}
+                    </div>
+                    <Switch>
+                        <Route path="/reports/week/:week" component={ReportDetails}/>
+                        <Route path="/reports/create" component={CreateReport}/>
+                        <Route path="/reports/update/:week" component={UpdateReport}/>
+                    </Switch>
+                </Router>
+            </main>
         );
     }
 }
