@@ -18,7 +18,11 @@ class Register extends Component {
     onSubmit = (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:1337/register", {
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl + "/register", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

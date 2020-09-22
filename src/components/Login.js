@@ -19,7 +19,11 @@ class Login extends Component {
     onSubmit = (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:1337/login", {
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl + "/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

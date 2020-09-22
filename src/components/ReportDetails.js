@@ -16,7 +16,11 @@ class ReportDetails extends Component {
     callAPI() {
         let week = this.props.match.params.week;
 
-        fetch("http://localhost:1337/reports/week/" + week)
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl + "/reports/week/" + week)
             .then(res => res.json())
             .then(res => this.setState({ week: res.data.week, content: res.data.content }));
     }

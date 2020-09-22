@@ -20,7 +20,11 @@ class CreateReport extends Component {
     onSubmit = (event) => {
         event.preventDefault();
 
-        fetch("http://localhost:1337/reports", {
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl + "/reports", {
             method: 'POST',
             headers: {
                 'x-access-token': token.token,
@@ -36,6 +40,7 @@ class CreateReport extends Component {
                 this.setState({ status: "Kunde inte skapa ny text."})
             }
         })
+        .then(this.setState({ status: "hej" }))
         // then(Reports.updateState(this.state.status))
         .catch((error) => {
             console.error('Error:', error);

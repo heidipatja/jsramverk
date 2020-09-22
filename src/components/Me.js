@@ -9,7 +9,11 @@ class Me extends Component {
     }
 
     callAPI() {
-        fetch("http://localhost:1337")
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl)
             .then(res => res.json())
             .then(res => this.setState({ content: res.data.content }));
     }

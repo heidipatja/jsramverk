@@ -12,9 +12,13 @@ class Reports extends Component {
     }
 
     callAPI() {
-        fetch("http://localhost:1337/reports/")
+        const apiUrl = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333"
+            : "https://me-api.heidipatja.me";
+
+        fetch(apiUrl + "/reports/")
             .then(res => res.json())
-            .then(res => this.setState({ data: res.data }));
+            .then(result => this.setState({ data: result.data }));
     }
 
     componentDidMount() {
