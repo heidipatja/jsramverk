@@ -10,6 +10,10 @@ class Login extends Component {
         this.state = { email: '', password: '', status: '' };
     }
 
+    componentDidMount() {
+        document.title = "Logga in";
+    }
+
     onChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value

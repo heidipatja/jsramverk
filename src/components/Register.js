@@ -8,6 +8,11 @@ class Register extends Component {
         this.state = { email: '', password: '', status: '' };
     }
 
+    componentDidMount() {
+        this.callAPI();
+        document.title = "Registrera dig";
+    }
+
     onChange = (event) => {
         event.preventDefault();
         this.setState({

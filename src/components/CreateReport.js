@@ -10,6 +10,10 @@ class CreateReport extends Component {
         this.state = { week: '', content: '', status: '' };
     }
 
+    componentDidMount() {
+        document.title = "Skapa rapport";
+    }
+
     onChange = (event) => {
         event.preventDefault();
         this.setState({

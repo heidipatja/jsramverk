@@ -23,6 +23,7 @@ class Reports extends Component {
 
     componentDidMount() {
         this.callAPI();
+        document.title = "Rapporter";
     }
 
     componentDidUpdate(prevProps) {

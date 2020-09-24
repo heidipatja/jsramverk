@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/heidipatja/jsramverk.svg?branch=master)](https://travis-ci.org/heidipatja/jsramverk)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/heidipatja/jsramverk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/heidipatja/jsramverk?branch=master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

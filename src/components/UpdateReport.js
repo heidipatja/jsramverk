@@ -24,6 +24,7 @@ class UpdateReport extends Component {
 
     componentDidMount() {
         this.callAPI();
+        document.title = "Uppdatera rapport";
     }
 
     componentDidUpdate(prevProps) {

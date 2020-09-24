@@ -27,6 +27,7 @@ class ReportDetails extends Component {
 
     componentDidMount() {
         this.callAPI();
+        document.title = "Rapport vecka " + this.props.match.params.week;
     }
 
     componentDidUpdate(prevProps) {

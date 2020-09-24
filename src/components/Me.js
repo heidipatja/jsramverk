@@ -20,6 +20,7 @@ class Me extends Component {
 
     componentDidMount() {
         this.callAPI();
+        document.title = "Me-app i jsramverk";
     }
 
     render() {
