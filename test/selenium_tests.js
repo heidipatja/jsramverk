@@ -49,22 +49,22 @@ test.describe("Three simple use cases in Selenium", function() {
 
 
 
-    test.it("Test me page", function(done) {
-        let promise = browser.getTitle();
-
-        promise.then(function(title) {
-            assert.equal(title, "Me-app i jsramverk");
-        });
-
-        browser.getTitle().then(function(title) {
-            assert.equal(title, "Me-app i jsramverk");
-        });
-
-        assertH1("Me-app i jsramverk");
-        matchUrl("");
-
-        done();
-    });
+    // test.it("Test me page", function(done) {
+    //     let promise = browser.getTitle();
+    //
+    //     promise.then(function(title) {
+    //         assert.equal(title, "Me-app i jsramverk");
+    //     });
+    //
+    //     browser.getTitle().then(function(title) {
+    //         assert.equal(title, "Me-app i jsramverk");
+    //     });
+    //
+    //     assertH1("Me-app i jsramverk");
+    //     matchUrl("");
+    //
+    //     done();
+    // });
 
 
 
