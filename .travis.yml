@@ -3,6 +3,7 @@ language: node_js
 node_js:
     - "node"
     - "12"
+    - "8"
 
 git:
     submodules: false
@@ -10,6 +11,8 @@ git:
 before_script:
     - npm install
     - npm start
+
+script:
     - npm test
 
 after_success:
