@@ -4,16 +4,12 @@ node_js:
     - "node"
     - "12"
 
-sudo: false
-
 git:
     submodules: false
 
 before_script:
     - npm install
     - npm start
-
-script:
     - npm test
 
 after_success:
