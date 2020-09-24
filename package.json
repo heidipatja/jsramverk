@@ -9,12 +9,13 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "chromedriver": "^85.0.1",
+    "geckodriver": "^1.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "geckodriver": "^1.20.0"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -39,8 +40,8 @@
     ]
   },
   "devDependencies": {
+    "http-server": "^0.11.1",
     "mocha": "^4.1.0",
-    "selenium-webdriver": "^3.6.0",
-    "http-server": "^0.11.1"
+    "selenium-webdriver": "^3.6.0"
   }
 }
