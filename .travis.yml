@@ -3,7 +3,8 @@ language: node_js
 node_js:
     - "node"
     - "12"
-    - "8"
+    - "10"
+    - "14"
 
 git:
     submodules: false
