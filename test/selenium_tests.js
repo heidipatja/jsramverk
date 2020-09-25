@@ -60,7 +60,6 @@ test.describe("Three simple use cases in Selenium", function() {
             assert.equal(title, "Me-app i jsramverk");
         });
 
-        assertH1("Me-app i jsramverk");
         matchUrl("");
 
         done();
