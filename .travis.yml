@@ -12,8 +12,11 @@ git:
     submodules: false
 
 before_script:
-    - npm install
-    - npm start
+    - npm install -g forever
 
 script:
+    - forever start -c 'npm start' ./
     - npm test
+
+after_script:
+    - forever stopall
