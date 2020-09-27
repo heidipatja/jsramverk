@@ -38,6 +38,10 @@ ul {
     padding-inline-start: 0;
 }
 
+ol {
+    padding-inline-start: 20px;
+}
+
 main ul {
     list-style-type: none;
 }
