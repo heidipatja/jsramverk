@@ -149,7 +149,8 @@ svg {
 
 .fa-home,
 .fa-book-open,
-.fa-sign-in-alt {
+.fa-sign-in-alt,
+.fa-comments {
     color: #cafffc;
     display: block;
 }
@@ -272,7 +273,8 @@ textarea {
 
     .fa-home,
     .fa-book-open,
-    .fa-sign-in-alt {
+    .fa-sign-in-alt,
+    .fa-comments {
         margin: 0 0.5rem 0 0;
         display: inline-block;
     }

@@ -8,9 +8,10 @@ import UpdateReport from './components/CreateReport.js';
 import ReportDetails from './components/ReportDetails.js';
 import Login from './components/Login.js';
 import Register from './components/Register.js';
+import Chat from './components/Chat.js';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBookOpen, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faBookOpen, faSignInAlt, faComments } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 
@@ -32,6 +33,10 @@ const App = () => (
                         <FontAwesomeIcon icon={faBookOpen} />
                         <span className="iconText">Redovisning</span>
                     </Link>
+                    <Link to="/chat">
+                        <FontAwesomeIcon icon={faComments} />
+                        <span className="iconText">Chatt</span>
+                    </Link>
                     <Link to="/login">
                         <FontAwesomeIcon icon={faSignInAlt} />
                         <span className="iconText">Logga in</span>
@@ -46,7 +51,7 @@ const App = () => (
                 <Route path="/reports/week/:week" component={ReportDetails}/>
                 <Route path="/reports/update/:week" component={UpdateReport}/>
                 <Route path="/reports/create" component={CreateReport}/>
-
+                <Route path="/chat" component={Chat}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
             </Switch>
