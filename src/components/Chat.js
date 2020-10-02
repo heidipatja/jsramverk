@@ -14,9 +14,9 @@ const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [chatActive, setChatActive] = useState(false);
 
-    // const server = "http://localhost:8300";
+    const server = "http://localhost:8300";
 
-    const server = "https://socket-server.heidipatja.me/";
+    // const server = "https://socket-server.heidipatja.me/";
 
     useEffect(() => {
         socket = io(server);

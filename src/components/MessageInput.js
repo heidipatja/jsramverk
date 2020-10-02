@@ -8,7 +8,8 @@ function getTimeStamp() {
 
 const MessageInput = ({ message, setMessage, sendMessage, setTimeStamp }) => (
     <form>
-        <textarea className="textAreaChat" type="text" value={message} onChange={(event) => setMessage(event.target.value) + setTimeStamp(getTimeStamp())}
+        <label className="messageLabel" htmlFor="message">Meddelande</label>
+        <textarea className="textAreaChat" name="message" type="text" value={message} placeHolder="Skriv ett meddelande och tryck på enter" onChange={(event) => setMessage(event.target.value) + setTimeStamp(getTimeStamp())}
             onKeyPress={event => event.key === "Enter" ? sendMessage(event) + setMessage("") : null }
         />
     </form>

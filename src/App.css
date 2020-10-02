@@ -243,6 +243,40 @@ textarea {
     font-size: 1rem;
 }
 
+.messageBox {
+    margin: 0 0 1rem;
+    padding: 1rem 1.2rem;
+    background-color: #f1f1f1;
+    border-radius: 0.5rem;
+}
+
+.timestamp,
+.username {
+    display: inline-block;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.username {
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.textAreaChat {
+    min-height: 5rem;
+    padding: 1rem;
+    resize: none;
+    border-radius: 0.5rem;
+    border-color: gray;
+}
+
+.messageLabel {
+    display: none;
+}
+
 @media screen and (min-width: 768px) {
     .top-nav {
         min-height: 3rem;
