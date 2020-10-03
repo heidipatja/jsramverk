@@ -64,7 +64,7 @@ main ul {
     flex-flow: row nowrap;
     display: flex;
     justify-content: space-evenly;
-    width: 28rem;
+    width: 39rem;
 }
 
 .navContainer a {

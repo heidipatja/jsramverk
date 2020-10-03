@@ -4,7 +4,6 @@ import io from 'socket.io-client';
 import Messages from "./Messages";
 import MessageInput from "./MessageInput";
 
-// const socket = io('http://localhost:8300');
 let socket;
 
 const Chat = () => {
@@ -14,19 +13,21 @@ const Chat = () => {
     const [messages, setMessages] = useState([]);
     const [chatActive, setChatActive] = useState(false);
 
-    const server = "http://localhost:8300";
+    const apiUrl = process.env.NODE_ENV === "development"
+        ? "http://localhost:8300"
+        : "https://socket-server.heidipatja.me/";
 
-    // const server = "https://socket-server.heidipatja.me/";
+    console.log(apiUrl);
 
     useEffect(() => {
-        socket = io(server);
+        socket = io(apiUrl);
 
         return () => {
             socket.emit("disconnect");
 
             socket.off();
         }
-    }, [server]);
+    }, [apiUrl]);
 
     useEffect(() => {
         socket.on("message", (message) => {
