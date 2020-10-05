@@ -12,22 +12,25 @@ const Chat = () => {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const [chatActive, setChatActive] = useState(false);
+    const [chatHistory, setChatHistory] = useState(false);
 
     const apiUrl = process.env.NODE_ENV === "development"
+        ? "http://localhost:8333/chat"
+        : "https://me-api.heidipatja.me/chat";
+
+    const socketUrl = process.env.NODE_ENV === "development"
         ? "http://localhost:8300"
         : "https://socket-server.heidipatja.me/";
 
-    console.log(apiUrl);
-
     useEffect(() => {
-        socket = io(apiUrl);
+        socket = io(socketUrl);
 
         return () => {
             socket.emit("disconnect");
 
             socket.off();
         }
-    }, [apiUrl]);
+    }, [socketUrl]);
 
     useEffect(() => {
         socket.on("message", (message) => {
@@ -54,7 +57,12 @@ const Chat = () => {
                 timestamp: timestamp,
                 username: username,
                 message: message
-            }, () => setMessage(""));
+            });
+            saveMessage({
+                timestamp: timestamp,
+                username: username,
+                message: message
+            });
         }
     }
 
@@ -68,11 +76,43 @@ const Chat = () => {
         }
     }
 
+    const chatlog = async (event) => {
+        event.preventDefault();
+
+        setChatHistory(true);
+
+        fetch(apiUrl)
+            .then(res => res.json())
+            .then(res => setMessages([...res, ...messages]));
+    }
+
+    const saveMessage = (message) => {
+
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(message)
+        })
+        .then(setMessage(""))
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    const chatHistoryButton = () => {
+        if (!chatHistory)  {
+            return (
+                <button className="chatHistoryButton" onClick={chatlog}>Se tidigare meddelanden</button>
+            )
+        }
+    }
+
     if (chatActive) {
         return (
             <main>
                 <h1>Chatt</h1>
                 <div className="chatBox">
+                    <div>{chatHistoryButton()}</div>
                     <Messages timestamp={timestamp} username={username} messages={messages} />
                     <MessageInput message={message} setMessage={setMessage} sendMessage={sendMessage} setTimeStamp={setTimeStamp} />
                 </div>

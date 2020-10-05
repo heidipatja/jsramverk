@@ -23,6 +23,7 @@ main {
     max-width: 35rem;
     text-align: left;
     padding: 1rem;
+    margin-bottom: 3rem;
 }
 
 nav {
@@ -32,6 +33,7 @@ nav {
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
     display: flex;
+    z-index: 1;
 }
 
 ul {
@@ -248,6 +250,24 @@ textarea {
     padding: 1rem 1.2rem;
     background-color: #f1f1f1;
     border-radius: 0.5rem;
+}
+
+.chatSaved {
+    margin: 0 0 1rem;
+    padding: 1rem 1.2rem;
+    background-color: #dbf3ec;
+    border-radius: 0.5rem;
+}
+
+.chatFailed {
+    margin: 0 0 1rem;
+    padding: 1rem 1.2rem;
+    background-color: #f3dbdb;
+    border-radius: 0.5rem;
+}
+
+.chatHistoryButton {
+    background-color: #333333;
 }
 
 .timestamp,
